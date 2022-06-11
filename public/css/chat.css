@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
+*{
+    margin: 0;
+    /*font-family: 'Lato', sans-serif;
+font-family: 'Oswald', sans-serif;*/
+}
+body{
+    background-color: #e4e4e4;
+    display: flex;
+}
+.box_chat{
+    position: relative;
+    width:40vw;
+    height:auto;
+    background-color:#fff;
+    left:25%;
+    margin-top: 50px;
+}
+
+.head_chat{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    padding:10px 20px;
+    padding-bottom:20px ;
+    margin-bottom: 2em;
+}
+.head_chat_left{
+    position: relative;
+    display: flex;
+}
+.head_chat_left img{
+    padding: 0;
+    cursor: pointer;
+   /* border: 4px solid #e4e5e5;*/
+    border-radius: 50%;
+}
+.box_name{
+    display: flex;
+    flex-direction: column;
+    margin-left:5px ;
+    margin-top: 5px;
+}
+.head_chat_left .box_name h4{
+}
+.box_on{
+    margin-top: 5px;
+    color:rgba(0,0,0,0.4);
+    display:flex;
+    flex-direction: row;
+}
+.box_on div{
+    margin-top: 5px;
+    width:5px;
+    height:5px;
+    border:1px solid greenyellow;
+    border-radius:50%;
+    background-color: greenyellow;
+}
+
+.head_chat_right{
+    display: flex;
+    width:110px;
+    justify-content: space-around;
+}
+.head_chat_right i{
+    font-size: 24px;
+    color:dodgerblue;
+}
+.head_chat_right p{
+    color:#fff;
+    padding: 2px 9.5px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+}
+.footer_chat{
+    margin-top:20px;
+    padding-top: 30px;
+    border-top:1px solid rgba(0,0,0,0.4);
+    padding-left: 25px;
+    padding-bottom:20px ;
+    width: 95%;
+}
+.footer_chat button{
+    cursor: pointer;
+    background: #fff;
+    border: 0;
+}
+.footer_chat input{
+    border-radius: 24px;
+    border:2px solid rgba(0,0,0,0.4);
+    padding:10px;
+    width:85%;
+    transition: 0.15s;
+}
+.footer_chat input:focus{
+    border: 2px solid dodgerblue;
+    outline: 0;
+}
+.footer_chat i{
+    color:dodgerblue;
+    font-size: 20px;
+}
+
+.nav{
+    width: 100vw;
+    display: flex;
+    background-color:#fff;
+    margin-bottom:20px ;
+    padding-bottom: 30px;
+}
+.nav ul li{
+    list-style:none;
+}
+.nav ul li a{
+    text-decoration: none;
+    color:#000;
+}
+
+.content_chat{
+    height:auto;
+}
+.content_chat .explain{
+    position: relative;
+    color:#e4e4e4;
+    text-align: center;
+    width:100%;
+    margin:10px auto;
+}
+.content_chat .explain h1{
+    font-size: 80px;
+}
+.content_chat .content-item{
+    display:flex;
+}
+.content_chat .content-item .content-message{
+    background-color: dodgerblue;
+    border-radius: 24px;
+    width: auto;
+    padding:5px 10px;
+    color:#fff;
+}
+.content_chat .content-item .content-img{
+    width:15px;
+    height:15px;
+    background-size: contain;
+    border-radius:50%;
+}
+
+.content_chat .content-item-keypress{
+    margin-left: 15px;
+    display:flex;
+}
+.content-keypress{
+    background-color: dodgerblue;
+    border-radius: 24px;
+    width: auto;
+    padding:5px 10px;
+    color:#fff;
+}
+
+/*nav*/

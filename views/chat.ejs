@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<%-include('navchat')%>
+<body>
+    <div class="box_chat">
+        <div class="head_chat">
+            <div class="head_chat_left">
+                    <img src="img/<%=data.img%>" alt="" width="50" height="50">
+                <div class="box_name">
+                    <h4><%=data.name%></h4>
+                    <div class="box_on">
+                        <div class="on"></div>
+                        <h5>online</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="head_chat_right">
+                <i class="fa fa-phone"></i>
+                <i class="fa fa-camera"></i>
+                <p>i</p>
+            </div>
+        </div>
+        <div class="content_chat" id="content_chat">
+            <div class="explain">
+                <h1>
+                    message
+                </h1>
+            </div>
+            <div class="content-item">
+                <div class="content-img"></div>
+                <span class="content-message">test ok??</span>
+            </div>
+        </div>
+        <div  class="footer_chat">
+                <input id="message"type="text" placeholder="Aa">
+                <button id="btn_send" onclick="send()" type="submit"><i class="fa fa-paper-plane" oninput="typing()"></i></button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const send_btn = document.getElementById('btn_send');
+        const message = document.getElementById('message')
+        let socket = io()
+        function send(){
+            console.log(send_btn)
+        console.log(message.value)
+        socket.emit('send',{message:message.value})
+        message.value = '';
+        }
+  socket.on('reciverd',data => {
+      console.log('dssk')
+            const con_item = document.createElement('div');
+            const con_img = document.createElement('div')
+            const con_message = document.createElement('span')
+            const con_chat = document.getElementById('content_chat')
+
+            con_message.textContent =data.name +" :"+ data.message;
+            con_img.style.backgroundImage =`url(img/${data.img})`
+
+            con_item.className='content-item';
+            con_img.className = 'content-img';
+            con_message.className = 'content-message';
+
+            con_item.appendChild(con_img);
+            con_item.appendChild(con_message);
+            con_chat.appendChild(con_item);
+
+            console.log(con_chat,con_img,con_item)
+  })
+
+  message.addEventListener('keypress',()=>{
+      socket.emit('typing')
+  })
+  socket.on('keypress',()=>{
+    const chat = document.getElementsByClassName("content-item-keypress")
+      if(chat.length<1){
+          console.log('doskd');
+        const con_item = document.createElement('div');
+            const con_message = document.createElement('span')
+            const con_chat = document.getElementById('content_chat')
+
+            con_item.className='content-item-keypress';
+            con_message.className = 'content-keypress';
+
+            con_message.textContent = 'typing.....'
+            con_item.appendChild(con_message);
+            con_chat.appendChild(con_item);
+      setTimeout(()=>{
+      con_item.removeChild(con_message)
+      con_chat.removeChild(con_item)
+    },2000)
+      }
+  })
+    </script>
+</body>
+</html>

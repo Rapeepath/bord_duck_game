@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+        }
+        nav{
+            display: flex;
+            padding: 20px 30px;
+            background-color: rgba(0,0,0,0.99);
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+            color:#000;
+        }
+        .box_contact{
+            position: absolute;
+            right:10px;
+            padding: 7px 15px;
+            border-radius:4px;
+            margin:auto;
+            border:2px solid orange;
+            background-color: orange;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        h2{
+            color:orange;
+            padding: 7px 15px;
+            margin: 0;
+            margin-right:25px ;
+
+        }
+        button:hover{
+            border-color:red;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>Game website</h2>
+        <button class="bt box_contact">
+            <a href="/chat">Contact admin</a>
+        </button>
+    </nav>
+</body>
+</html>
